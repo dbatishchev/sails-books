@@ -1,0 +1,21 @@
+sailsbooks:
+  build: .
+  links:
+    - mysql
+  ports:
+    - "1337:1337"
+  volumes:
+    - ./:/sails
+  command: npm start
+  environment:
+    - NODE_ENV=dev
+
+mysql:
+  image: mysql
+  ports:
+    - "3306:3306"
+  environment:
+    MYSQL_ROOT_PASSWORD: 123456
+    MYSQL_USER: dev
+    MYSQL_PASSWORD: 123456
+    MYSQL_DATABASE: sailsbooks
